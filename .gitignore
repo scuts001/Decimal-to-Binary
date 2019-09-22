@@ -1,32 +1,30 @@
-# Prerequisites
-*.d
+#include <iostream>
+#include <cmath>
+using namespace std;
+long long convertDecToBin(int);
+int main()
+{
+    int n, binNumber;
+    cout << "Enter a decimal number: ";
+    cin >> n;
+    binNumber = convertDecToBin(n);
+    cout << n << " in decimal and " << binNumber << " in binary" << endl ;
+    return 0;
+    //displays the decimal number and binary number.
+}
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+long long convertDecToBin(int n)
+{
+    long long binNumber = 0;
+    int remainder, i = 1, step = 1;
+    while (n!=0)
+    {
+        remainder = n%2;
+        cout << "Step #" << step++ << ": " << n << "/2, Remainder = " << remainder << ", Quotient = " << n/2 << endl;
+        n /= 2;
+        binNumber += remainder*i;
+        i *= 10;
+        //Describes the steps of transforming to binary.
+    }
+    return binNumber;
+}
